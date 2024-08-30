@@ -58,7 +58,15 @@ def show_popup():
     st.markdown('* Fornecedores e número de fornecedores para o material em questão')
     st.write('Dúvidas e sugestões: alan.alves@msdourada.com.br ou (11) 5184-6364.')
 
-show_popup()
+# Check if the pop-up has been shown during this session
+if 'popup_shown' not in st.session_state:
+    st.session_state.popup_shown = False
+
+# Display the pop-up only if it hasn't been shown yet
+if not st.session_state.popup_shown:
+    st.info("Bem Vindo!")
+    show_popup()
+    st.session_state.popup_shown = True
 
 
 #SIDE BAR
