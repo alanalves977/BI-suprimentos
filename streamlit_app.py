@@ -64,7 +64,6 @@ if 'popup_shown' not in st.session_state:
 
 # Display the pop-up only if it hasn't been shown yet
 if not st.session_state.popup_shown:
-    st.info("Bem Vindo!")
     show_popup()
     st.session_state.popup_shown = True
 
