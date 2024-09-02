@@ -16,7 +16,7 @@ def tabela_consumo(cod_item, conn, data_inicial, data_final):
      .select('data_baixa, quantidade, situacao, equip_cc_descricao, custo_total')
      .eq('cod_item',cod_item)
      .gte('data_baixa', data_inicial)
-     .lt('data_baixa', data_final)
+     .lte('data_baixa', data_final)
      .execute()
      .data)
 
@@ -86,7 +86,7 @@ def tabela_leadtime(cod_item, conn, data_inicial, data_final):
           .neq('data_rc','0001-01-01')
           .eq('cod_item',cod_item)
           .gte('data_reg_nf', data_inicial)
-          .lt('data_reg_nf', data_final)
+          .lte('data_reg_nf', data_final)
           .execute()
           .data)
     df = pd.DataFrame(df) #Converte para pandas dataframe
@@ -122,7 +122,7 @@ def tabela_compras(cod_item, conn, data_inicial, data_final):
       .select('data_reg_nf, fornecedor, quantidade')
       .eq('cod_item',cod_item)
       .gte('data_reg_nf', data_inicial)
-      .lt('data_reg_nf', data_final)
+      .lte('data_reg_nf', data_final)
       .execute()
       .data)
 
@@ -145,7 +145,7 @@ def tabela_fechamento_estoque_mensal_table(cod_item, conn, data_inicial, data_fi
           .select('data, quantidade, unitario, quantidade')
           .eq('cod_item',cod_item)
           .gte('data', data_inicial)
-          .lt('data', data_final)
+          .lte('data', data_final)
           .execute()
           .data)
 

@@ -23,13 +23,13 @@ def run_query_itens():
 itens = run_query_itens()
 
 @st.cache_data(ttl=3600)
-def run_query_data():
+def run_query_data_final():
     return old.ultima_atualizacao(conn=con) 
 
 # Váriaveis
 from datetime import date
 dinicial = pd.to_datetime('2023-01-01')
-dfinal = pd.to_datetime(run_query_data())
+dfinal = pd.to_datetime(run_query_data_final())
 cor_primaria ='#251C6E'
 cor_secundaria = '#F3C449'
 a_partir_de_data = pd.to_datetime(dfinal)-pd.DateOffset(years=1) #obtém data em ano atrás
@@ -44,7 +44,7 @@ st.markdown('''
     ''', unsafe_allow_html=True)
 
 
-@st.dialog("Bem Vindo")
+@st.dialog("Bem Vindo!")
 def show_popup():
     st.markdown("""**Baseado no histórico de consumo de materiais e compras**, esse BI foi elaborado para auxiliar na
                 definição de estoque de segurança, ponto de ressuprimento e estoque máximo.
