@@ -83,7 +83,7 @@ def tabela_leadtime(cod_item, conn, data_inicial, data_final):
     df = (conn
           .table('compras')
           .select('fornecedor, data_rc, data_reg_nf')
-          .neq('data_rc','0001-01-01')
+          .neq('data_rc','1970-01-01')
           .eq('cod_item',cod_item)
           .gte('data_reg_nf', data_inicial)
           .lte('data_reg_nf', data_final)
