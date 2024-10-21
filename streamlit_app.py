@@ -37,6 +37,7 @@ dados_insuficiente_metricas = False
 dados_insuficiente_ge = False
 
 # Faz uso da página inteira
+st.set_page_config(layout="wide")
 st.markdown('''
     <style>
         section.main > div {max-width:98rem}
