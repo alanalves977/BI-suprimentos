@@ -11,6 +11,9 @@ import metricas as m
 import graficos as g
 import funcoes_genericas as fg
 
+# Faz uso da página inteira
+st.set_page_config(layout="wide")
+
 # Inicializa conecção com a base de dados no supabase
 con = st.connection('supabase', type=SupabaseConnection)
 
@@ -37,12 +40,11 @@ dados_insuficiente_metricas = False
 dados_insuficiente_ge = False
 
 # Faz uso da página inteira
-st.set_page_config(layout="wide")
-st.markdown('''
-    <style>
-        section.main > div {max-width:98rem}
-    </style>
-    ''', unsafe_allow_html=True)
+#st.markdown('''
+#    <style>
+#        section.main > div {max-width:98rem}
+#    </style>
+#    ''', unsafe_allow_html=True)
 
 
 @st.dialog("Bem Vindo!")
